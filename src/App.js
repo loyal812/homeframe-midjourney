@@ -2,9 +2,10 @@ import TestView from './views/test';
 import Header from './layouts/header';
 import Footer from './layouts/footer';
 
+
 function App() {
   return (
-    <div className="App">
+    <div className="flex flex-col gap-y-6 App">
       <Header />
       <TestView />
       <Footer />

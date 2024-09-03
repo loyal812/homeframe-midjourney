@@ -1,6 +1,18 @@
+import MenuBar from "../components/menubar"
+
 const Header = () => {
     return (
-        <div>Header</div>
+        <>
+            {/* <!-- follow me on twitter @asad_codes --> */}
+
+            <div className="flex flex-wrap place-items-center">
+                <section className="relative mx-auto">
+                    {/* <!-- navbar --> */}
+                    <MenuBar />
+                </section>
+            </div>
+
+        </>
     )
 }
 

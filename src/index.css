@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 16px;
+  background: url('./assets/img/homeFrameBlack2.jpeg');
+    /* webpackIgnore: true */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
 }

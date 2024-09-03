@@ -1,6 +1,8 @@
 const Footer = () => {
     return (
-        <div>Header</div>
+        <div className=" fixed">
+
+        </div>
     )
 }
 
