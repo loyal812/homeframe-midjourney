@@ -1,0 +1,13 @@
+/* ==========================================================================
+// base
+// ==========================================================================*/
+@import "base/variable";
+@import "base/mixin";
+@import "base/reset";
+@import "base/base";
+@import "base/common";
+
+@import "layouts/header.scss";
+@import "layouts/footer.scss";
+
+@import "pages/test.scss";
