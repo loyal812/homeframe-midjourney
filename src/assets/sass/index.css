@@ -565,4 +565,248 @@ html::-webkit-scrollbar { /* Chrome, Safari 対応 */
 
 .ff-yuMincho {
   font-family: "yu-mincho-pr6n", "sans-serif";
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/public/assets/font/Inter/static/Inter-Regular.ttf");
+}
+.footer {
+  display: inline-flex;
+  padding: 36px;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.style_select {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+  border-radius: 24px;
+  border: 2px solid var(--white-10, rgba(255, 255, 255, 0.1));
+  background: var(--sub-background, #151515);
+  max-width: 292px;
+  width: 100%;
+}
+.style_select .styleImg {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: url("/public/assets/img/frame202.png"), lightgray 50%/cover no-repeat, url("/public/assets/img/frame202.png"), lightgray 50%/cover no-repeat;
+}
+.style_select .styleText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 4px;
+  flex: 1 0 0;
+}
+.style_select .styleText .label {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  color: var(--white-white-60, rgba(255, 255, 255, 0.6));
+  /* Body XS - Bold */
+  font-size: 11px;
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 130%;
+}
+.style_select .styleText .type {
+  display: flex;
+  height: 18px;
+  flex-direction: column;
+  align-self: stretch;
+  overflow: hidden;
+  color: var(--white-white-100, #FFF);
+  text-overflow: ellipsis;
+  whitespace: nowrap;
+  /* Body S - Bold */
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 140%;
+}
+.style_select .styleEdit {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: var(--buttons-territaty, linear-gradient(207deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 100%), #1A1A1A);
+}
+.style_select .styleEdit .editButton {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.promptDiv {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  padding: 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  border-radius: 24px;
+  background: var(--background, #0D0D0D);
+}
+.promptDiv .promptText {
+  display: flex;
+  height: 56px;
+  padding: 8px 0px 16px 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1 0 0;
+  border-bottom: 2px solid rgba(11, 144, 40, 0.2);
+}
+.promptDiv .promptText .label {
+  color: var(--white-white-60, rgba(255, 255, 255, 0.6));
+  font-size: 10px;
+  font-family: "Inter";
+  font-weight: 700;
+  line-height: 130%;
+  text-transform: uppercase;
+}
+.promptDiv .promptText .text {
+  color: var(--white-white-100, #FFF);
+  /* Body M - Bold */
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 140%;
+}
+.promptDiv .promptCreate {
+  display: flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 2px solid var(--buttons-strokes-primary, rgba(98, 230, 127, 0.2));
+  background: var(--buttons-primary, radial-gradient(40% 60.71% at 50.59% 100%, #62E57F 0%, #0B8F27 100%));
+}
+.promptDiv .promptCreate .editbutton {
+  width: 24px;
+  height: 24px;
+}
+.promptDiv .promptCreate .label {
+  color: var(--white-white-80, rgba(255, 255, 255, 0.8));
+  /* Body M - Bold */
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.priceDiv {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 24px;
+  border: 2px solid var(--white-10, rgba(255, 255, 255, 0.1));
+  background: var(--sub-background, #151515);
+  max-width: 292px;
+  width: 100%;
+}
+.priceDiv .priceText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1 0 0;
+}
+.priceDiv .priceText .label {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  color: var(--white-white-60, rgba(255, 255, 255, 0.6));
+  /* Body XS - Bold */
+  font-size: 11px;
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 130%;
+}
+.priceDiv .priceText .text {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  color: #62E57F;
+  /* Body XL - Bold */
+  font-size: 18px;
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 140%;
+}
+.priceDiv .priceEdit {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: var(--buttons-secondary, rgba(11, 144, 40, 0.1));
+}
+.priceDiv .priceEdit .cartButton {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.main {
+  max-width: 1154px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .splide__slide.is-active .component {
+  transform-origin: center;
+  transform: scale(1);
+  opacity: 1;
+}
+.main .splide__slide .component {
+  position: relative;
+  opacity: 0.5;
+  background: #FFF;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 10.4000015259px 22.2857170105px 0px rgba(0, 0, 0, 0.15), 0px 40.1142883301px 40.1142883301px 0px rgba(0, 0, 0, 0.13), 0px 90.628578186px 54.2285766602px 0px rgba(0, 0, 0, 0.08), 0px 161.200012207px 64.628578186px 0px rgba(0, 0, 0, 0.02), 0px 251.8285980225px 70.571434021px 0px rgba(0, 0, 0, 0);
+  transform: scale(0.8);
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+.main .splide__slide .component .frame img {
+  width: 100%;
+}
+.main .splide__slide .component .image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 100px);
+  height: calc(100% - 100px);
+  z-index: 10;
+}
+.main .splide__slide .component .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=index.css.map */

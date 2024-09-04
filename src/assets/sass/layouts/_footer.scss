@@ -1,0 +1,229 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('/public/assets/font/Inter/static/Inter-Regular.ttf');
+}
+
+.footer {
+    display: inline-flex;
+    padding: 36px;
+    align-items: center;
+    gap: 24px;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.style_select {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex: 1 0 0;
+    border-radius: 24px;
+    border: 2px solid var(--white-10, rgba(255, 255, 255, 0.10));
+    background: var(--sub-background, #151515);
+    max-width: 292px;
+    width: 100%;
+
+    .styleImg {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: url('/public/assets/img/frame202.png'), lightgray 50% / cover no-repeat, url('/public/assets/img/frame202.png'), lightgray 50% / cover no-repeat;
+    }
+
+    .styleText {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 4px;
+        flex: 1 0 0;
+
+        .label {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+            color: var(--white-white-60, rgba(255, 255, 255, 0.60));
+
+            /* Body XS - Bold */
+            font-size: 11px;
+            font-family: 'Inter';
+            font-weight: 600;
+            line-height: 130%;
+        }
+
+        .type {
+            display: flex;
+            height: 18px;
+            flex-direction: column;
+            align-self: stretch;
+            overflow: hidden;
+            color: var(--white-white-100, #FFF);
+            text-overflow: ellipsis;
+            whitespace: nowrap;
+
+            /* Body S - Bold */
+            font-size: 14px;
+            font-family: 'Inter';
+            font-weight: 600;
+            line-height: 140%;
+        }
+    }
+
+    .styleEdit {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 12px;
+        background: var(--buttons-territaty, linear-gradient(207deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.04) 100%), #1A1A1A);
+
+        .editButton {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.promptDiv {
+    flex: 1;
+    display: flex;
+    // width: 672px;
+    width: 100%;
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    border-radius: 24px;
+    background: var(--background, #0D0D0D);
+
+    .promptText {
+        display: flex;
+        height: 56px;
+        padding: 8px 0px 16px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 4px;
+        flex: 1 0 0;
+        border-bottom: 2px solid rgba(11, 144, 40, 0.20);
+
+        .label {
+            color: var(--white-white-60, rgba(255, 255, 255, 0.60));
+            font-size: 10px;
+            font-family: 'Inter';
+            font-weight: 700;
+            line-height: 130%;
+            text-transform: uppercase;
+        }
+
+        .text {
+            color: var(--white-white-100, #FFF);
+
+            /* Body M - Bold */
+            font-size: 16px;
+            font-family: 'Inter';
+            font-weight: 600;
+            line-height: 140%;
+        }
+    }
+
+    .promptCreate {
+        display: flex;
+        padding: 16px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        align-self: stretch;
+        border-radius: 12px;
+        border: 2px solid var(--buttons-strokes-primary, rgba(98, 230, 127, 0.20));
+        background: var(--buttons-primary, radial-gradient(40% 60.71% at 50.59% 100.00%, #62E57F 0%, #0B8F27 100%));
+
+        .editbutton {
+            width: 24px;
+            height: 24px;
+        }
+
+        .label {
+            color: var(--white-white-80, rgba(255, 255, 255, 0.80));
+
+            /* Body M - Bold */
+            font-size: 16px;
+            font-family: 'Inter';
+            font-weight: 600;
+            line-height: 140%;
+        }
+    }
+}
+
+.priceDiv {
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 24px;
+    border: 2px solid var(--white-10, rgba(255, 255, 255, 0.10));
+    background: var(--sub-background, #151515);
+    max-width: 292px;
+    width: 100%;
+
+    .priceText {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        flex: 1 0 0;
+
+        .label {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+            color: var(--white-white-60, rgba(255, 255, 255, 0.60));
+
+            /* Body XS - Bold */
+            font-size: 11px;
+            font-family: 'Inter';
+            font-weight: 600;
+            line-height: 130%;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+            color: #62E57F;
+
+            /* Body XL - Bold */
+            font-size: 18px;
+            font-family: 'Inter';
+            font-weight: 600;
+            line-height: 140%;
+        }
+    }
+
+    .priceEdit {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 12px;
+        background: var(--buttons-secondary, rgba(11, 144, 40, 0.10));
+
+        .cartButton {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+    }
+
+}

@@ -24,7 +24,7 @@ code {
   align-items: flex-start;
   gap: 24px;
   border-radius: 16px;
-  background: url('./assets/img/homeFrameBlack2.jpeg');
+  background: url('/public/assets/img/homeFrameBlack2.jpeg');
     /* webpackIgnore: true */
   background-position: center;
   background-repeat: no-repeat;

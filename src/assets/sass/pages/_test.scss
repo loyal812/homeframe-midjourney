@@ -1,0 +1,52 @@
+.main {
+    max-width: 1154px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .splide__slide{
+        &.is-active{
+            .component{
+                transform-origin: center;
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .component {
+            position: relative;
+            // width: 275px;
+            // height: 385px;
+            opacity: 0.5;
+            background: #FFF;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 10.400001525878906px 22.285717010498047px 0px rgba(0, 0, 0, 0.15), 0px 40.114288330078125px 40.114288330078125px 0px rgba(0, 0, 0, 0.13), 0px 90.62857818603516px 54.22857666015625px 0px rgba(0, 0, 0, 0.08), 0px 161.20001220703125px 64.62857818603516px 0px rgba(0, 0, 0, 0.02), 0px 251.82859802246094px 70.5714340209961px 0px rgba(0, 0, 0, 0.00);
+            transform: scale(0.8);
+            transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            .frame {
+                // width: 275px;
+                // height: 385px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .image {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: calc(100% - 100px);
+                height: calc(100% - 100px);
+                z-index: 10;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
