@@ -34,7 +34,6 @@ const PromptDiv = () => {
           const messageId = response.data.messageId;
           console.log(messageId);
           
-          setTimeout(async () => {
             console.log('This will run after 1 second!')
             const imgconfig = {
               method: 'get',
@@ -42,13 +41,12 @@ const PromptDiv = () => {
               headers: {
                 'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f',
               },
+              data:response.data
             };
         
             const imgResponse = await axios(imgconfig);
             console.log(JSON.stringify(imgResponse.data));
             dispatch(setMidjourneyImgs(imgResponse.data.imageUrls || []));
-
-          }, 5000);
 
         } catch (error) {
           console.log(error);
