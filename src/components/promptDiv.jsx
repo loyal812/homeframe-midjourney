@@ -9,6 +9,7 @@ const PromptDiv = () => {
     const [prompt, setPrompt] = useState("");
     const dispatch = useDispatch();
 
+    const token = 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f'
     const handleRequest = async () => {
       var data = JSON.stringify({
         "msg": prompt,
@@ -16,19 +17,35 @@ const PromptDiv = () => {
         "webhookOverride": ""
       });
 
-      var config = {
+      var basic_config = {
         method: 'post',
         url: 'https://api.thenextleg.io/v2/imagine',
         headers: { 
-          'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f', 
+          'Authorization': token, 
           'Content-Type': 'application/json'
         },
         data : data
       };
 
-      axios(config)
+      axios(basic_config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        var msg_config = {
+          method: 'get',
+          url: `https://api.thenextleg.io/v2/message/${response.data.messageId}?expireMins=2`,
+          headers: { 
+            'Authorization': token, 
+          },
+          data : response.data
+        };
+        
+        axios(msg_config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       })
       .catch(function (error) {
         console.log(error);
