@@ -1,13 +1,13 @@
 /* ==========================================================================
 // base
 // ==========================================================================*/
-@import "base/variable";
-@import "base/mixin";
-@import "base/reset";
-@import "base/base";
-@import "base/common";
+@import "base/_variable";
+@import "base/_mixin";
+@import "base/_reset";
+@import "base/_base";
+@import "base/_common";
 
-@import "layouts/header.scss";
-@import "layouts/footer.scss";
+@import "layouts/_header.scss";
+@import "layouts/_footer.scss";
 
-@import "pages/test.scss"; 
+@import "pages/_test.scss"; 

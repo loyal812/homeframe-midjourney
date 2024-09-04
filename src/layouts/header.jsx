@@ -5,7 +5,7 @@ const Header = () => {
         <>
             {/* <!-- follow me on twitter @asad_codes --> */}
 
-            <div className="flex flex-wrap place-items-center">
+            <div className="fixed top-0 left-0 w-full flex flex-wrap place-items-center">
                 <section className="relative mx-auto">
                     {/* <!-- navbar --> */}
                     <MenuBar />

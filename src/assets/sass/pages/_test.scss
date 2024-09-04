@@ -1,11 +1,12 @@
 .main {
     max-width: 1154px;
     width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 60px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     .splide__slide {

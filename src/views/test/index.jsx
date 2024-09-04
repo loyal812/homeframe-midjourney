@@ -9,7 +9,13 @@ const Slider = () => {
                 rewind: 'true',
                 type: 'loop',
                 perPage: 3,
-                focus: 'center', gap: 40
+                focus: 'center', gap: 40, 
+                breakpoints: {
+                    768: {
+                      perPage: 1,
+                      gap    : 20,
+                    },
+                }
             }} aria-label="React Splide Example">
                 <SplideSlide>
                     <div className='component'>
