@@ -132,6 +132,7 @@
         }
 
         .text {
+            width: 100%;
             color: var(--white-white-100, #FFF);
 
             /* Body M - Bold */
@@ -139,6 +140,9 @@
             font-family: 'Inter';
             font-weight: 600;
             line-height: 140%;
+            input {
+                width: 100x;
+            }
         }
     }
 
