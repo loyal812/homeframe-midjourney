@@ -724,6 +724,7 @@ html::-webkit-scrollbar { /* Chrome, Safari 対応 */
   background: var(--sub-background, #151515);
   max-width: 292px;
   width: 100%;
+  color: var(--white-white-80, rgba(255, 255, 255, 0.8));
 }
 .priceDiv .priceText {
   display: flex;
@@ -776,6 +777,8 @@ html::-webkit-scrollbar { /* Chrome, Safari 対応 */
   width: 100%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  gap: 60px;
   justify-content: space-between;
   align-items: center;
 }
@@ -790,7 +793,7 @@ html::-webkit-scrollbar { /* Chrome, Safari 対応 */
   background: #FFF;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15), 0px 10.4000015259px 22.2857170105px 0px rgba(0, 0, 0, 0.15), 0px 40.1142883301px 40.1142883301px 0px rgba(0, 0, 0, 0.13), 0px 90.628578186px 54.2285766602px 0px rgba(0, 0, 0, 0.08), 0px 161.200012207px 64.628578186px 0px rgba(0, 0, 0, 0.02), 0px 251.8285980225px 70.571434021px 0px rgba(0, 0, 0, 0);
   transform: scale(0.8);
-  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .main .splide__slide .component .frame img {
   width: 100%;
@@ -809,4 +812,69 @@ html::-webkit-scrollbar { /* Chrome, Safari 対応 */
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.main .splide__arrows svg {
+  display: none;
+}
+.main .splide__arrows .splide__arrow {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(243, 243, 243, 0.1) 0%, rgba(243, 243, 243, 0.08) 100%);
+  -webkit-backdrop-filter: blur(47.5px);
+          backdrop-filter: blur(47.5px);
+}
+.main .splide__arrows .splide__arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.main .splide__arrows .splide__arrow.splide__arrow--prev {
+  left: -100px;
+}
+.main .splide__arrows .splide__arrow.splide__arrow--prev::after {
+  background-image: url("/public/assets/img/left_arrow.svg");
+}
+.main .splide__arrows .splide__arrow.splide__arrow--next {
+  right: -100px;
+}
+.main .splide__arrows .splide__arrow.splide__arrow--next::after {
+  background-image: url("/public/assets/img/right_arrow.svg");
+}
+.main .frame {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.main .frame .wishlist {
+  display: flex;
+  height: 44px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border-radius: 12px;
+  background: var(--buttons-territaty, linear-gradient(207deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 100%), #1A1A1A);
+  color: var(--white-white-80, rgba(255, 255, 255, 0.8));
+}
+.main .frame .wishlist .icon {
+  width: 24px;
+  height: 24px;
+}
+.main .frame .wishlist .text {
+  color: var(--white-white-80, rgba(255, 255, 255, 0.8));
+  /* Body S - Bold */
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 140%;
 }/*# sourceMappingURL=index.css.map */

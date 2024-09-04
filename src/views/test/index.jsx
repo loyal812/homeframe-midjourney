@@ -1,6 +1,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-
+import HeartSVG from '../../components/heartImg';
+import BrushIcon from '../../components/brushIcon';
 const Slider = () => {
     return (
         <div className='main'>
@@ -41,6 +42,17 @@ const Slider = () => {
                     </div>
                 </SplideSlide>
             </Splide>
+
+            <div className='frame'>
+                <div className='wishlist'>
+                    <HeartSVG className='icon' />
+                    <div className='text'>Add to Wish List</div>
+                </div>
+                <div className='wishlist'>
+                    <BrushIcon className='icon' />
+                    <div className='text'>Customizing</div>
+                </div>
+            </div>
         </div>
     );
 }
