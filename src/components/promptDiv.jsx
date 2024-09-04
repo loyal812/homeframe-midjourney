@@ -9,49 +9,76 @@ const PromptDiv = () => {
     const [prompt, setPrompt] = useState("");
     const dispatch = useDispatch();
 
-
     const handleRequest = async () => {
-        try {
-          const data = JSON.stringify({
-            "msg": prompt,
-            "ref": "",
-            "webhookOverride": ""
-          });
-      
-          const config = {
-            method: 'post',
-            url: 'https://api.thenextleg.io/v2/imagine',
-            headers: {
-              'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f',
-              'Content-Type': 'application/json'
-            },
-            data: data
-          };
-      
-          const response = await axios(config);
-          console.log(JSON.stringify(response.data));
-      
-          const messageId = response.data.messageId;
-          console.log(messageId);
-          
-            console.log('This will run after 1 second!')
-            const imgconfig = {
-              method: 'get',
-              url: `https://api.thenextleg.io/v2/message/${messageId}?expireMins=2`,
-              headers: {
-                'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f',
-              },
-              data:response.data
-            };
-        
-            const imgResponse = await axios(imgconfig);
-            console.log(JSON.stringify(imgResponse.data));
-            dispatch(setMidjourneyImgs(imgResponse.data.imageUrls || []));
+      var data = JSON.stringify({
+        "msg": prompt,
+        "ref": "",
+        "webhookOverride": ""
+      });
 
-        } catch (error) {
-          console.log(error);
-        }
+      var config = {
+        method: 'post',
+        url: 'https://api.thenextleg.io/v2/imagine',
+        headers: { 
+          'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f', 
+          'Content-Type': 'application/json'
+        },
+        data : data
       };
+
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+    }
+
+    // const handleRequest = async () => {
+    //     try {
+    //       const data = JSON.stringify({
+    //         "msg": prompt,
+    //         "ref": "",
+    //         "webhookOverride": ""
+    //       });
+      
+    //       const config = {
+    //         method: 'post',
+    //         url: 'https://api.thenextleg.io/v2/imagine',
+    //         headers: {
+    //           'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f',
+    //           'Content-Type': 'application/json'
+    //         },
+    //         data: data
+    //       };
+      
+    //       const response = await axios(config);
+    //       console.log(JSON.stringify(response.data));
+      
+    //       const messageId = response.data.messageId;
+    //       console.log(messageId);
+          
+    //         console.log('This will run after 1 second!')
+    //         const imgconfig = {
+    //           method: 'get',
+    //           url: `https://api.thenextleg.io/v2/message/${messageId}?expireMins=2`,
+    //           headers: {
+    //             'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f',
+    //           },
+    //           data:response.data
+    //         };
+        
+    //         const imgResponse = await axios(imgconfig);
+    //         console.log(JSON.stringify(imgResponse.data));
+    //         dispatch(setMidjourneyImgs(imgResponse.data.imageUrls || []));
+
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
       
 
     return (
