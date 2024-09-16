@@ -4,6 +4,7 @@ import Footer from './layouts/footer';
 import { Provider } from 'react-redux';
 import {store} from './redux/store.js';
 
+
 function App() {
   return (
     <div className="flex flex-col gap-y-6 App">
