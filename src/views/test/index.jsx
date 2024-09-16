@@ -25,7 +25,7 @@ const Slider = () => {
                     <SplideSlide key={index}>
                         <div className='component'>
                             <div className='frame'>
-                                <img src='/assets/img/colorDefault.jpeg' />
+                                <img src='/assets/img/colorDefault.jpeg' alt='frame' />
                             </div>
                             <div className='image'>
                                 <img src={item} alt={index}/>

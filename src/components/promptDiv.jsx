@@ -7,51 +7,65 @@ import { setMidjourneyImgs } from "../redux";
 const PromptDiv = () => {
     
     const [prompt, setPrompt] = useState("");
-    const dispatch = useDispatch();
+    // const [basicResponse, setBasicResponse] = useState({});
 
+    const dispatch = useDispatch();
+    const midjourneyImgs = [];
     const token = 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f'
     const handleRequest = async () => {
-      var data = JSON.stringify({
-        "msg": prompt,
-        "ref": "",
-        "webhookOverride": ""
-      });
+        let basicResponse;
 
-      var basic_config = {
-        method: 'post',
-        url: 'https://api.thenextleg.io/v2/imagine',
-        headers: { 
-          'Authorization': token, 
-          'Content-Type': 'application/json'
-        },
-        data : data
-      };
+        const data = JSON.stringify({
+            "msg": prompt,
+            "ref": "",
+            "webhookOverride": ""
+        });
 
-      axios(basic_config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        var msg_config = {
-          method: 'get',
-          url: `https://api.thenextleg.io/v2/message/${response.data.messageId}?expireMins=2`,
-          headers: { 
+        const basic_config = {
+            method: 'post',
+            url: 'https://api.thenextleg.io/v2/imagine',
+            headers: { 
             'Authorization': token, 
-          },
-          data : response.data
+            'Content-Type': 'application/json'
+            },
+            data : data
         };
-        
-        axios(msg_config)
+
+        axios(basic_config)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+            console.log(JSON.stringify(response.data));
+            basicResponse = response.data    
+            // setBasicResponse(JSON.stringify(response.data));
         })
         .catch(function (error) {
-          console.log(error);
+            console.log(error);
         });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    
+        const timeoutId = setTimeout(() => {
+            if(basicResponse){
+                const msg_config = {
+                    method: 'get',
+                    url: `https://api.thenextleg.io/v2/message/${basicResponse.messageId}?expireMins=2`,
+                    headers: { 
+                        'Authorization': token, 
+                    },
+                    data : basicResponse
+                };
+                
+                axios(msg_config)
+                .then(function (response) {
+                    console.log(response.data.response.imageUrls);
+                    dispatch(setMidjourneyImgs([...response.data.response.imageUrls]));
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+        }, 120000);
 
-
+        return () => {
+            clearTimeout(timeoutId)
+        }
     }
 
     // const handleRequest = async () => {
@@ -104,9 +118,9 @@ const PromptDiv = () => {
                 <div className="label">Prompt</div>
                 <div className="text"><textarea id="midprompt" onChange={(e) => setPrompt(e.target.value)}/></div>
             </div>
-            <div className="promptCreate">
+            <div className="promptCreate" style={{cursor: "pointer"}} onClick={handleRequest}>
                 <MagicIcon className="editbutton" />
-                <button className="label" onClick={handleRequest}>Create</button>
+                <button className="label" >Create</button>
             </div>
         </div>
     )
