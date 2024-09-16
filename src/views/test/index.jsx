@@ -15,7 +15,7 @@ const Slider = () => {
                 perPage: 3,
                 focus: 'center', gap: 40,
                 breakpoints: {
-                    768: {
+                    1000: {
                         perPage: 1,
                         gap: 20,
                     },

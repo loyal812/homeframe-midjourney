@@ -1,0 +1,17 @@
+.header {
+    @include sp {
+        height: 72px;
+        padding: 14px 16px;
+
+        .logo_icon svg {
+            width: 114px;
+            height: auto;
+        }
+
+        .hambtn {
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+    }
+}
