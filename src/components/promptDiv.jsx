@@ -45,7 +45,7 @@ const PromptDiv = () => {
             if(basicResponse){
                 const msg_config = {
                     method: 'get',
-                    url: `https://api.thenextleg.io/v2/message/${basicResponse.messageId}?expireMins=2`,
+                    url: `https://api.thenextleg.io/v2/message/${basicResponse.messageId}?expireMins=12`,
                     headers: { 
                         'Authorization': token, 
                     },
@@ -61,7 +61,7 @@ const PromptDiv = () => {
                     console.log(error);
                 });
             }
-        }, 120000);
+        }, 80000);
 
         return () => {
             clearTimeout(timeoutId)
