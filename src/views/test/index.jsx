@@ -3,8 +3,12 @@ import '@splidejs/react-splide/css';
 import HeartSVG from '../../components/heartImg';
 import BrushIcon from '../../components/brushIcon';
 import { useSelector } from 'react-redux';
+import Spinner from '../../components/Spinner';
+import Loading from '../../components/Loading';
 
 const Slider = () => {
+    const { general } = useSelector((state) => state);
+    const { loading } = general;
     const midjouryImgs = useSelector((state) => state.midjourney.midjourneyImgs);
     console.log(midjouryImgs);
     return (
@@ -24,8 +28,9 @@ const Slider = () => {
                 {midjouryImgs.map((item, index) => (
                     <SplideSlide key={index}>
                         <div className='component'>
-                            <div className='frame'>
+                            <div className='frame relative'>
                                 <img src='/assets/img/colorDefault.jpeg' alt='frame' />
+                                {<Loading />}
                             </div>
                             <div className='image'>
                                 <img src={item} alt={index}/>

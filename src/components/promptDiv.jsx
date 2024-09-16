@@ -1,13 +1,13 @@
 import MagicIcon from "./magicIcon";
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setMidjourneyImgs } from "../redux";
+import { useDispatch,useSelector } from "react-redux";
+import { setLoading, setMidjourneyImgs } from "../redux";
 
 const PromptDiv = () => {
-    
+    const { general } = useSelector((state) => state);
+    const { loading } = general;
     const [prompt, setPrompt] = useState("");
-    const [isLoading, setLoading] = useState(false);
     const [opacityValue, setOpacity] = useState(1);
     // const [basicResponse, setBasicResponse] = useState({});
 
@@ -15,7 +15,8 @@ const PromptDiv = () => {
     const midjourneyImgs = [];
     const token = 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f'
     const handleRequest = async () => {
-        setLoading(true);
+        dispatch(setLoading(true))
+
         setOpacity(0.3);
         let basicResponse;
 
@@ -43,6 +44,7 @@ const PromptDiv = () => {
         })
         .catch(function (error) {
             console.log(error);
+            dispatch(setLoading(false));
         });
     
         const timeoutId = setTimeout(() => {
@@ -58,14 +60,14 @@ const PromptDiv = () => {
                 
                 axios(msg_config)
                 .then(function (response) {
-                    setLoading(true);
                     setOpacity(1);
                     console.log(response.data.response.imageUrls);
+                    dispatch(setLoading(false));
                     dispatch(setMidjourneyImgs([...response.data.response.imageUrls]));
                 })
                 .catch(function (error) {
                     setOpacity(1);
-                    setLoading(false);
+                    dispatch(setLoading(false));
                     console.log(error);
                 });
             }
@@ -80,9 +82,9 @@ const PromptDiv = () => {
         <div className="promptDiv">
             <div className="promptText">
                 <div className="label">Prompt</div>
-                <div className="text"><textarea id="midprompt" onChange={(e) => setPrompt(e.target.value)}/></div>
+                <div className="text"><textarea id="midprompt" onChange={(e) => setPrompt(e.target.value)} readOnly={loading} /></div>
             </div>
-            <button className="promptCreate" disabled={isLoading} style={{opacity: opacityValue}}
+            <button className="promptCreate" style={{opacity: opacityValue}} disabled={loading}
                 onClick={handleRequest}>
                 <MagicIcon className="editbutton" />
                 <div className="label" >Create</div>
