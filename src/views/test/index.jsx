@@ -30,7 +30,7 @@ const Slider = () => {
                         <div className='component'>
                             <div className='frame relative'>
                                 <img src='/assets/img/colorDefault.jpeg' alt='frame' />
-                                {<Loading />}
+                                {loading && <Loading />}
                             </div>
                             <div className='image'>
                                 <img src={item} alt={index}/>
