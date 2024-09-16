@@ -1,4 +1,4 @@
-import Spin from "./spinner.gif"
+import Spin from "./Gears.gif"
 
 function Spinner() {
     return (
