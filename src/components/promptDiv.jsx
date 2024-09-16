@@ -7,12 +7,16 @@ import { setMidjourneyImgs } from "../redux";
 const PromptDiv = () => {
     
     const [prompt, setPrompt] = useState("");
+    const [isLoading, setLoading] = useState(false);
+    const [opacityValue, setOpacity] = useState(1);
     // const [basicResponse, setBasicResponse] = useState({});
 
     const dispatch = useDispatch();
     const midjourneyImgs = [];
     const token = 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f'
     const handleRequest = async () => {
+        setLoading(true);
+        setOpacity(0.3);
         let basicResponse;
 
         const data = JSON.stringify({
@@ -54,10 +58,14 @@ const PromptDiv = () => {
                 
                 axios(msg_config)
                 .then(function (response) {
+                    setLoading(true);
+                    setOpacity(1);
                     console.log(response.data.response.imageUrls);
                     dispatch(setMidjourneyImgs([...response.data.response.imageUrls]));
                 })
                 .catch(function (error) {
+                    setOpacity(1);
+                    setLoading(false);
                     console.log(error);
                 });
             }
@@ -68,60 +76,17 @@ const PromptDiv = () => {
         }
     }
 
-    // const handleRequest = async () => {
-    //     try {
-    //       const data = JSON.stringify({
-    //         "msg": prompt,
-    //         "ref": "",
-    //         "webhookOverride": ""
-    //       });
-      
-    //       const config = {
-    //         method: 'post',
-    //         url: 'https://api.thenextleg.io/v2/imagine',
-    //         headers: {
-    //           'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f',
-    //           'Content-Type': 'application/json'
-    //         },
-    //         data: data
-    //       };
-      
-    //       const response = await axios(config);
-    //       console.log(JSON.stringify(response.data));
-      
-    //       const messageId = response.data.messageId;
-    //       console.log(messageId);
-          
-    //         console.log('This will run after 1 second!')
-    //         const imgconfig = {
-    //           method: 'get',
-    //           url: `https://api.thenextleg.io/v2/message/${messageId}?expireMins=2`,
-    //           headers: {
-    //             'Authorization': 'Bearer 272db278-4705-4baf-bd70-79ceeb19b63f',
-    //           },
-    //           data:response.data
-    //         };
-        
-    //         const imgResponse = await axios(imgconfig);
-    //         console.log(JSON.stringify(imgResponse.data));
-    //         dispatch(setMidjourneyImgs(imgResponse.data.imageUrls || []));
-
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
-      
-
     return (
         <div className="promptDiv">
             <div className="promptText">
                 <div className="label">Prompt</div>
                 <div className="text"><textarea id="midprompt" onChange={(e) => setPrompt(e.target.value)}/></div>
             </div>
-            <div className="promptCreate" style={{cursor: "pointer"}} onClick={handleRequest}>
+            <button className="promptCreate" disabled={isLoading} style={{opacity: opacityValue}}
+                onClick={handleRequest}>
                 <MagicIcon className="editbutton" />
-                <button className="label" >Create</button>
-            </div>
+                <div className="label" >Create</div>
+            </button>
         </div>
     )
 }
